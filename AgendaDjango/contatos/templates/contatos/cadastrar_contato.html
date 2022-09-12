@@ -112,14 +112,13 @@
   </ul>
 </nav>
 
-    <h1>{{contato.nome}} {{contato.sobrenome}}</h1>
+<form action="." method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit" value="Cadastrar">
 
-    <strong>Telefone:</strong>{{contato.telefone}}<br>
-    <strong>E-mail:</strong>{{contato.email}}<br>
-    <strong>Data Nascimento:</strong>{{contato.data_nascimento}}<br>
-    <strong>Data Cadastro:</strong>{{contato.data_cadastro}}<br>
-    <strong>Descrição:</strong>{{contato.descricao}}<br>
-    <strong>Categoria:</strong>{{contato.categoria}}<br>
+</form>
+
 
 
 </body>

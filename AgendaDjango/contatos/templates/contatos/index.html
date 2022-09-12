@@ -121,6 +121,7 @@
   </thead>
     <tbody>
     {%for contato in contatos%}
+    {%if contato.mostrar == True%}
 
 
 
@@ -132,6 +133,7 @@
         <td>{{contato.telefone}}</td>
 
     </tr>
+    {%endif%}
     {%endfor%}
   </tbody>
 </table>

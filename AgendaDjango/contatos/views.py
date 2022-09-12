@@ -44,7 +44,18 @@ def ver_contato(request, contato_id):
 
 
 def cadastrar_contato(request):
-    form = FormularioCadastro()
-    return render(request, 'contatos/form.html', {'form': form})
+    if request.method == 'GET':
+        form = FormularioCadastro()
+        return render(request, 'contatos/cadastrar_contato.html', {'form': form})
+    else:
+        form =  FormularioCadastro(request.POST)
+        if form.is_valid():
+            cadastro = form.save()
+            form = FormularioCadastro()
+            return index(request)
+        else:
+            return render(request, 'contatos/cadastrar_contato.html',
+                          {'form': form})
+
 
 
